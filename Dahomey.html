@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdóname</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333333;
+        }
+        .gif {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #si-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no-button {
+            background-color: #f44336;
+            color: white;
+        }
+        #mensajes-no {
+            color: #f44336;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Me perdonas?</h1>
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHJjMXNqb2FwemJsdHViMXlzN2dlNHgxamhlbWQ2ODJhb2NkN2g3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BEvVsk0v0JM6k/giphy.webp" alt="Lo siento" class="gif">
+        <p>Lo siento mucho. Sé que cometí un error y te pido perdón de todo corazón. Por favor, dame otra oportunidad.</p>
+        <button id="si-button" onclick="gracias()">Sí</button>
+        <button id="no-button" onclick="noPerdona()">No</button>
+        <p id="mensajes-no"></p>
+    </div>
+    <script>
+        let contadorNo = 0;
+        const mensajes = [
+            "¿Estás segura?",
+            "¿Estás completamente segura?",
+            "¿Pero segura segura?",
+            "Por favor?",
+            "Por favor por favor?",
+            "Ándale, no seas así gor",
+            "¡Deja de darle click aquí!!",
+            "¡Ya dale, perdóname cabezona!",
+            "¡No puedes decir que no!!"
+        ];
+
+        function gracias() {
+            alert("¡Gracias por perdonarme mi Cabezona! Te amo Dahomey.");
+        }
+
+        function noPerdona() {
+            if (contadorNo < mensajes.length) {
+                document.getElementById("mensajes-no").innerText = mensajes[contadorNo];
+                contadorNo++;
+            } else {
+                document.getElementById("mensajes-no").innerText = "¡No puedes decir que no!!";
+            }
+            let siButton = document.getElementById("si-button");
+            let currentSize = parseInt(window.getComputedStyle(siButton).fontSize);
+            siButton.style.fontSize = (currentSize + 2) + "px";
+        }
+    </script>
+</body>
+</html>
